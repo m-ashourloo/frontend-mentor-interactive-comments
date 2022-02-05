@@ -34,4 +34,8 @@ export class CommentsComponent implements OnInit {
     this.facade.loadComments();
   }
 
+  counter(i: number) {
+    return new Array(i);
+  }
+
 }

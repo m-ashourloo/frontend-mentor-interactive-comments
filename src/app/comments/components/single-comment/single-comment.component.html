@@ -1,4 +1,4 @@
-<div class="bg-white border-slate-100 border-2 rounded-lg p-3">
+<div *ngIf="comment" class="bg-white border-slate-100 border-2 rounded-lg p-3">
     <div class="flex justify-start items-center">
         <div class="w-8 mr-4">
             <img [src]="comment.user.image.png" alt="avatar image" class="w-full h-auto">
@@ -42,6 +42,6 @@
         </div> 
     </div>
 </div>
-<div class="pl-2 border-l-2 border-slate-200 mt-2">
+<div *ngIf="comment" class="pl-2 border-l-2 border-slate-200 mt-2">
     <app-single-comment *ngFor="let reply of comment.replies" [comment]="reply"></app-single-comment>
 </div>

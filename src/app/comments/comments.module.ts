@@ -5,6 +5,7 @@ import { CommentsRoutingModule } from './comments-routing.module';
 import { CommentsComponent } from './comments.component';
 import { SingleCommentComponent } from './components/single-comment/single-comment.component';
 import { AddCommentComponent } from './components/add-comment/add-comment.component';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { AddCommentComponent } from './components/add-comment/add-comment.compon
   ],
   imports: [
     CommonModule,
-    CommentsRoutingModule
+    CommentsRoutingModule,
+    NgxSkeletonLoaderModule,
   ]
 })
 export class CommentsModule { }
