@@ -1,11 +1,6 @@
 <div class="flex justify-center">
     <div class="flex flex-col items-center w-full p-2 scroll-smooth">
-      <app-single-comment class="w-full my-2"></app-single-comment>
-      <app-single-comment class="w-full my-2"></app-single-comment>
-      <app-single-comment class="w-full my-2"></app-single-comment>
-      <app-single-comment class="w-full my-2"></app-single-comment>
-      <app-single-comment class="w-full my-2"></app-single-comment>
-      <app-single-comment class="w-full my-2"></app-single-comment>
+      <app-single-comment *ngFor="let comment of comments" [comment]="comment" class="w-full my-1"></app-single-comment>
       <app-add-comment class="w-full my-3"></app-add-comment>
     </div>
 </div>

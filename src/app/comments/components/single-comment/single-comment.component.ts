@@ -1,4 +1,5 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { CommentModel } from '../../models/comments.model';
 
 @Component({
   selector: 'app-single-comment',
@@ -7,6 +8,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SingleCommentComponent implements OnInit {
+  @Input() comment: CommentModel;
 
   constructor() { }
 

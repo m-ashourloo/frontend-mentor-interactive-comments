@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { CommentsRoutingModule } from './comments-routing.module';
 import { CommentsComponent } from './comments.component';
-import { SingleCommentComponent } from './single-comment/single-comment.component';
-import { AddCommentComponent } from './add-comment/add-comment.component';
+import { SingleCommentComponent } from './components/single-comment/single-comment.component';
+import { AddCommentComponent } from './components/add-comment/add-comment.component';
 
 
 @NgModule({
