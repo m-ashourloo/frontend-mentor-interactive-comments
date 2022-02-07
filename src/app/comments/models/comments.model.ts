@@ -4,7 +4,8 @@ export interface CommentModel {
     id: number;
     content: string;
     createdAt: string;
-    score: Number;
+    score: number;
     user: UserModel;
     replies: CommentModel[];
+    replyTo?: CommentModel;
 }

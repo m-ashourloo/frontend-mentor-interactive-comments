@@ -1,0 +1,22 @@
+<div class="bg-white border-slate-100 border-2 rounded-lg p-3">
+  <div class="flex justify-between">
+    <div *ngIf="currentUser" class="hidden md:block w-9 mr-3">
+      <img [src]="currentUser?.image?.png" alt="avatar image" class="w-full h-auto">
+    </div>
+    <textarea [(ngModel)]="content" placeholder="Add a comment..." name="addComment" id="addComment" rows="3" class="w-full rounded-md border border-slate-200 caret-black p-2 resize-none"></textarea>
+    <button (click)="reply()" [disabled]="!currentUser" class="hidden md:block ml-3 px-8 py-3 h-12 bg-indigo-500 hover:bg-indigo-500/50 disabled:bg-indigo-500/50 text-white font-black rounded-lg">REPLY</button>
+  </div>
+  <div class="flex justify-between items-center mt-3">
+    <div *ngIf="currentUser" class="w-8 md:hidden">
+      <img [src]="currentUser?.image?.png" alt="avatar image" class="w-full h-auto">
+    </div>
+    <ngx-skeleton-loader *ngIf="!currentUser" count="1" appearance="circle"
+                         [theme]="{
+            height: '36px',
+            width: '36px',
+            'margin-left': '-2px'
+          }"
+    ></ngx-skeleton-loader>
+    <button (click)="reply()" [disabled]="!currentUser" class="md:hidden px-8 py-3 bg-indigo-500 hover:bg-indigo-500/50 disabled:bg-indigo-500/50 text-white font-black rounded-lg">REPLY</button>
+  </div>
+</div>

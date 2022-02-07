@@ -1,4 +1,16 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ChangeDetectionStrategy,
+  Input,
+  Output,
+  EventEmitter,
+  OnChanges,
+  SimpleChanges
+} from '@angular/core';
+import { UserModel } from '../../models/user.model';
+import { CommentModel } from '../../models/comments.model';
+
 
 @Component({
   selector: 'app-add-comment',
@@ -8,9 +20,28 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 })
 export class AddCommentComponent implements OnInit {
 
+  @Input() currentUser: UserModel | null;
+  @Output() addCommentEvent = new EventEmitter<CommentModel>();
+
+  comment: CommentModel;
+  content: string;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  addComment(){
+    this.comment = {
+      score: 0,
+      createdAt: 'Just now',
+      user: this.currentUser as UserModel,
+      replies: [],
+      content: this.content,
+      id: Math.round((Math.random() + 1) * 500)
+    }
+    this.addCommentEvent.emit(this.comment);
+    this.content = '';
   }
 
 }
