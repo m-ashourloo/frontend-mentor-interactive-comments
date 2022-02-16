@@ -17,6 +17,7 @@ export class CommentsComponent implements OnInit {
   commentToDelete: CommentModel | undefined;
   commentToDeleteReplyTo: CommentModel | undefined;
   replyDeleteMode: boolean = false;
+  loading = true;
 
   constructor(private facade: FacadeService) { }
 
@@ -31,6 +32,7 @@ export class CommentsComponent implements OnInit {
       (comments) => {
         this.comments = comments;
         this.sortComments();
+        this.loading = false;
       }
     );
     this.facade.getCurrentUser$().pipe(skip(1)).subscribe(

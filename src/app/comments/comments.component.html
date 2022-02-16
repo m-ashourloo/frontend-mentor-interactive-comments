@@ -1,6 +1,6 @@
 <div class="flex justify-center">
     <div class="flex flex-col items-center w-full p-2 scroll-smooth xl:w-1/2 xl:mt-10">
-      <div *ngIf="comments.length === 0" class="w-full">
+      <div *ngIf="loading" class="w-full">
           <div *ngFor='let in of counter(3)' class="bg-white w-full border-slate-100 border-2 rounded-lg p-3 my-1">
             <div class="flex content-start items-center">
               <div class="w-6">
