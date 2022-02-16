@@ -61,7 +61,8 @@ export class CommentsComponent implements OnInit {
     this.facade.deleteComment(comment);
   }
 
-  reply(comment: CommentModel) {
+  reply(comment: CommentModel, replyToComment: CommentModel) {
+    comment.replyTo = replyToComment;
     this.facade.reply(comment);
   }
 }

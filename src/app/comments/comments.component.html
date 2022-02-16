@@ -43,7 +43,7 @@
                             [currentUser]="currentUser"
                             (editCommentEvent)="pleaseEditComment($event)"
                             (deleteCommentEvent)="deleteComment($event)"
-                            (replyEvent)="reply($event)"
+                            (replyEvent)="reply($event, comment)"
                             [isReply]="false"
                             class="w-full my-1">
         </app-single-comment>

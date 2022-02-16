@@ -83,11 +83,12 @@
 
 </div>
 <div class="pl-3 border-l-2 border-slate-200 mt-2">
-    <app-single-comment *ngFor="let reply of comment.replies"
-                        [comment]="reply"
+    <app-single-comment *ngFor="let replyComment of comment.replies"
+                        [comment]="replyComment"
                         [currentUser]="currentUser"
                         (editReplyEvent)="editReply($event)"
                         (deleteReplyEvent)="deleteReply($event)"
+                        (replyEvent)="reply($event)"
                         [isReply]="true">
     </app-single-comment>
 </div>

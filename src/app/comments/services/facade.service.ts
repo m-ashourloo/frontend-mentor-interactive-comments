@@ -49,6 +49,10 @@ export class FacadeService {
   }
 
   public reply(comment: CommentModel){
+    if(comment.replyTo?.replies === undefined){
+      // @ts-ignore
+      comment["replyTo"].replies = [];
+    }
     comment.replyTo?.replies.push({
       id: comment.id,
       user: comment.user,
