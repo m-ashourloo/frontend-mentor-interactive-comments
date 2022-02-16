@@ -1,40 +1,54 @@
 <div class="flex justify-center">
     <div class="flex flex-col items-center w-full p-2 scroll-smooth xl:w-1/2 xl:mt-10">
       <div *ngIf="loading" class="w-full">
-          <div *ngFor='let in of counter(3)' class="bg-white w-full border-slate-100 border-2 rounded-lg p-3 my-1">
-            <div class="flex content-start items-center">
-              <div class="w-6">
-                <ngx-skeleton-loader count="1" class="w-full" appearance="circle"></ngx-skeleton-loader>
-              </div>
-              <div class="w-20 pt-2 ml-7">
-                <ngx-skeleton-loader count="1" appearance="line"></ngx-skeleton-loader>
-              </div>
-              <div class="w-24 pt-2 ml-4">
-                <ngx-skeleton-loader count="1" appearance="line"></ngx-skeleton-loader>
-              </div>
+        <div *ngFor='let in of counter(3)' class="bg-white w-full border-slate-100 border-2 rounded-lg p-3 my-1">
+          <div class="flex">
+            <div class="hidden md:block md:w-1/12">
+              <ngx-skeleton-loader count="1" appearance="line" [theme]="{'width.px':42.5,'height.px': 96, 'border-radius.rem':0.75, 'margin-top.px':4}"></ngx-skeleton-loader>
             </div>
-            <div class="w-full">
-              <ngx-skeleton-loader count="2" appearance="line"></ngx-skeleton-loader>
-              <div class="w-1/2">
-                <ngx-skeleton-loader count="1" appearance="line"></ngx-skeleton-loader>
-              </div>
-            </div>
-            <div class="flex justify-between">
-              <div class="w-1/4">
-                <ngx-skeleton-loader count="1" appearance="line"
-                [theme]="{
-                  height: '35px'
-                }"
-                ></ngx-skeleton-loader>
-              </div>
-              <div class="w-1/4">
-                <ngx-skeleton-loader count="1" appearance="line"
-                [theme]="{
-                  height: '35px'
-                }"
-                ></ngx-skeleton-loader>
-              </div>
-            </div>
+           <div class="w-full md:w-11/12">
+             <div class="flex justify-between items-center">
+               <div class="flex content-between items-center">
+                 <div class="w-6">
+                   <ngx-skeleton-loader count="1" class="w-full" appearance="circle"></ngx-skeleton-loader>
+                 </div>
+                 <div class="w-20 pt-2 ml-7">
+                   <ngx-skeleton-loader count="1" appearance="line"></ngx-skeleton-loader>
+                 </div>
+                 <div class="w-24 pt-2 ml-4">
+                   <ngx-skeleton-loader count="1" appearance="line"></ngx-skeleton-loader>
+                 </div>
+               </div>
+               <div class="hidden md:block">
+                 <div class="w-20 pt-2">
+                   <ngx-skeleton-loader count="1" appearance="line"></ngx-skeleton-loader>
+                 </div>
+               </div>
+             </div>
+             <div class="w-full">
+               <ngx-skeleton-loader count="2" appearance="line"></ngx-skeleton-loader>
+               <div class="w-1/2">
+                 <ngx-skeleton-loader count="1" appearance="line"></ngx-skeleton-loader>
+               </div>
+             </div>
+             <div class="flex justify-between md:hidden">
+               <div class="w-1/4">
+                 <ngx-skeleton-loader count="1" appearance="line"
+                                      [theme]="{
+                height: '35px'
+              }"
+                 ></ngx-skeleton-loader>
+               </div>
+               <div class="w-1/4">
+                 <ngx-skeleton-loader count="1" appearance="line"
+                                      [theme]="{
+                height: '35px'
+              }"
+                 ></ngx-skeleton-loader>
+               </div>
+             </div>
+           </div>
+          </div>
         </div>
       </div>
       <div>
@@ -49,7 +63,7 @@
                             class="w-full my-1">
         </app-single-comment>
       </div>
-      <app-add-comment class="w-full mt-3 mb-1" [currentUser]="currentUser" (addCommentEvent)="addComment($event)"></app-add-comment>
+      <app-add-comment *ngIf="!loading" class="w-full mt-3 mb-1" [currentUser]="currentUser" (addCommentEvent)="addComment($event)"></app-add-comment>
     </div>
 </div>
 <app-delete-modal *ngIf="deleteModalShow" (modalClosed)="onCloseDeleteModal($event)"></app-delete-modal>
