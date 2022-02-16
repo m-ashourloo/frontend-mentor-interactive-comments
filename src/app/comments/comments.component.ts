@@ -26,7 +26,7 @@ export class CommentsComponent implements OnInit {
     this.facade.getComments().pipe(skip(1)).subscribe(
       (comments) => {
         this.comments = comments;
-
+        this.sortComments();
       }
     );
     this.facade.getCurrentUser$().pipe(skip(1)).subscribe(
@@ -64,5 +64,9 @@ export class CommentsComponent implements OnInit {
   reply(comment: CommentModel, replyToComment: CommentModel) {
     comment.replyTo = replyToComment;
     this.facade.reply(comment);
+  }
+
+  sortComments() {
+    this.comments.sort((a, b) => (a.score < b.score) ? 1 : -1);
   }
 }

@@ -8,6 +8,7 @@ import { AddCommentComponent } from './components/add-comment/add-comment.compon
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { FormsModule } from '@angular/forms';
 import { ReplyCommentComponent } from './components/reply-comment/reply-comment.component';
+import { DeleteModalComponent } from './components/delete-modal/delete-modal.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ReplyCommentComponent } from './components/reply-comment/reply-comment.
     CommentsComponent,
     SingleCommentComponent,
     AddCommentComponent,
-    ReplyCommentComponent
+    ReplyCommentComponent,
+    DeleteModalComponent
   ],
   imports: [
     CommonModule,
