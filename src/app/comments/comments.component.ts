@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { skip } from 'rxjs';
 import { CommentModel } from './models/comments.model';
 import { UserModel } from './models/user.model';

@@ -5,8 +5,6 @@ import {
   Input,
   Output,
   EventEmitter,
-  OnChanges,
-  SimpleChanges
 } from '@angular/core';
 import { UserModel } from '../../models/user.model';
 import { CommentModel } from '../../models/comments.model';
