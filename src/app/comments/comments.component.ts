@@ -110,8 +110,4 @@ export class CommentsComponent implements OnInit {
     this.hideDeleteModal();
   }
 
-  trackByComments(index: number, item: CommentModel) {
-    return item;
-  }
-
 }
