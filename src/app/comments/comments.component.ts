@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import { skip } from 'rxjs';
 import { CommentModel } from './models/comments.model';
 import { UserModel } from './models/user.model';
@@ -13,6 +13,10 @@ export class CommentsComponent implements OnInit {
 
   comments: CommentModel[] = [];
   currentUser: UserModel | null = null;
+  deleteModalShow: boolean = false;
+  commentToDelete: CommentModel | undefined;
+  commentToDeleteReplyTo: CommentModel | undefined;
+  replyDeleteMode: boolean = false;
 
   constructor(private facade: FacadeService) { }
 
@@ -32,7 +36,6 @@ export class CommentsComponent implements OnInit {
     this.facade.getCurrentUser$().pipe(skip(1)).subscribe(
       (user) => {
         this.currentUser = user;
-
       }
     );
   }
@@ -49,7 +52,7 @@ export class CommentsComponent implements OnInit {
     return new Array(i);
   }
 
-  pleaseEditComment(comment: CommentModel): void {
+  editComment(comment: CommentModel): void {
     this.facade.editComment(comment);
   }
 
@@ -57,8 +60,36 @@ export class CommentsComponent implements OnInit {
     this.facade.addComment(comment);
   }
 
-  deleteComment(comment: CommentModel) {
-    this.facade.deleteComment(comment);
+  deleteComment() {
+    if(this.replyDeleteMode && this.commentToDeleteReplyTo && this.commentToDelete){
+      const index = this.commentToDeleteReplyTo.replies.findIndex(c => c.id === this.commentToDelete?.id);
+      this.commentToDeleteReplyTo.replies.splice(index, 1);
+      this.facade.editComment(this.commentToDeleteReplyTo)
+    }else if(this.commentToDelete) {
+      this.facade.deleteComment(this.commentToDelete);
+    }
+  }
+
+  showDeleteModal() {
+    this.deleteModalShow = true;
+  }
+
+  hideDeleteModal() {
+    this.deleteModalShow = false;
+  }
+
+  setToDeleteComment(comment: CommentModel){
+    this.commentToDelete = comment;
+    this.commentToDeleteReplyTo = undefined;
+    this.replyDeleteMode = false;
+    this.showDeleteModal();
+  }
+
+  setToDeleteReply($event: CommentModel[]){
+    this.commentToDelete = $event[0];
+    this.commentToDeleteReplyTo = $event[1];
+    this.replyDeleteMode = true;
+    this.showDeleteModal();
   }
 
   reply(comment: CommentModel, replyToComment: CommentModel) {
@@ -67,6 +98,18 @@ export class CommentsComponent implements OnInit {
   }
 
   sortComments() {
-    this.comments.sort((a, b) => (a.score < b.score) ? 1 : -1);
+    this.comments.sort((a, b) => (a.score <= b.score) ? 1 : -1);
   }
+
+  onCloseDeleteModal(deleteConfirmed: boolean){
+    if(deleteConfirmed){
+      this.deleteComment();
+    }
+    this.hideDeleteModal();
+  }
+
+  trackByComments(index: number, item: CommentModel) {
+    return item;
+  }
+
 }

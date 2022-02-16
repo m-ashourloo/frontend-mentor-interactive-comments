@@ -15,7 +15,7 @@ export class SingleCommentComponent implements OnInit {
   @Input() isReply: boolean;
   @Output() editCommentEvent = new EventEmitter<CommentModel>();
   @Output() editReplyEvent = new EventEmitter<CommentModel>();
-  @Output() deleteReplyEvent = new EventEmitter<CommentModel>();
+  @Output() deleteReplyEvent = new EventEmitter<CommentModel[]>();
   @Output() deleteCommentEvent = new EventEmitter<CommentModel>();
   @Output() replyEvent = new EventEmitter<CommentModel>();
   editMode: boolean = false;
@@ -51,13 +51,11 @@ export class SingleCommentComponent implements OnInit {
   }
 
   emitDeleteReply(){
-    this.deleteReplyEvent.emit(this.comment);
+    this.deleteReplyEvent.emit([this.comment]);
   }
 
-  deleteReply(reply: CommentModel){
-    const index = this.comment.replies.findIndex(c => c.id === reply.id);
-    this.comment.replies.splice(index, 1);
-    this.editComment();
+  deleteReply(reply: CommentModel[]){
+    this.deleteReplyEvent.emit([reply[0],this.comment]);
   }
 
   editReply(reply: CommentModel) {

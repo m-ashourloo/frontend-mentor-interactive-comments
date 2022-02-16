@@ -14,8 +14,8 @@
         </div>
       </div>
       <div class="bg-gray-50 pb-5 px-6 flex justify-center">
-        <button type="button" class="inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mt-0 w-1/2 text-sm font-bold">NO, CANCEL</button>
-        <button type="button" class="inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-400 text-base text-white hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 ml-3 w-1/2 text-sm font-bold">YES, DELETE</button>
+        <button (click)="modalClosed.emit(false)" type="button" class="inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mt-0 w-1/2 text-sm font-bold">NO, CANCEL</button>
+        <button (click)="modalClosed.emit(true)" type="button" class="inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-400 text-base text-white hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 ml-3 w-1/2 text-sm font-bold">YES, DELETE</button>
       </div>
     </div>
   </div>

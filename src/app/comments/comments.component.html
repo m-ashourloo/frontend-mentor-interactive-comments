@@ -38,11 +38,12 @@
         </div>
       </div>
       <div>
-        <app-single-comment *ngFor="let comment of comments"
+        <app-single-comment *ngFor="let comment of comments;"
                             [comment]="comment"
                             [currentUser]="currentUser"
-                            (editCommentEvent)="pleaseEditComment($event)"
-                            (deleteCommentEvent)="deleteComment($event)"
+                            (editCommentEvent)="editComment($event)"
+                            (deleteCommentEvent)="setToDeleteComment($event)"
+                            (deleteReplyEvent)="setToDeleteReply($event)"
                             (replyEvent)="reply($event, comment)"
                             [isReply]="false"
                             class="w-full my-1">
@@ -51,4 +52,4 @@
       <app-add-comment class="w-full mt-3 mb-1" [currentUser]="currentUser" (addCommentEvent)="addComment($event)"></app-add-comment>
     </div>
 </div>
-<app-delete-modal *ngIf="true"></app-delete-modal>
+<app-delete-modal *ngIf="deleteModalShow" (modalClosed)="onCloseDeleteModal($event)"></app-delete-modal>
