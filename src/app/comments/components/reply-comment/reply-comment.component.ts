@@ -11,6 +11,7 @@ export class ReplyCommentComponent implements OnInit {
 
   @Input() currentUser: UserModel | null;
   @Input() replyTo: CommentModel;
+  @Input() replyingTo: string | undefined;
   @Output() replyEvent = new EventEmitter<CommentModel>();
 
   comment: CommentModel;
@@ -30,6 +31,7 @@ export class ReplyCommentComponent implements OnInit {
       content: this.content,
       id: Math.round((Math.random() + 1) * 500),
       replyTo: this.replyTo,
+      replyingTo: this.replyingTo,
     }
     this.replyEvent.emit(this.comment);
     this.content = '';

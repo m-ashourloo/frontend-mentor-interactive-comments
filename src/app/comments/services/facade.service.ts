@@ -56,6 +56,7 @@ export class FacadeService {
       content: comment.content,
       score: comment.score,
       createdAt: comment.createdAt,
+      replyingTo: comment.replyingTo,
     });
     this.editComment(comment.replyTo as CommentModel);
   }

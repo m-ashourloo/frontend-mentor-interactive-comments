@@ -8,4 +8,5 @@ export interface CommentModel {
     user: UserModel;
     replies: CommentModel[];
     replyTo?: CommentModel;
+    replyingTo?: string;
 }

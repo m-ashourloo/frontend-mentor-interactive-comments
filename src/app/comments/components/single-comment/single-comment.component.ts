@@ -20,6 +20,7 @@ export class SingleCommentComponent implements OnInit {
   @Output() replyEvent = new EventEmitter<CommentModel>();
   editMode: boolean = false;
   replyMode: boolean = false;
+  replyingTo: string | undefined = undefined;
 
   constructor() { }
 
@@ -30,8 +31,13 @@ export class SingleCommentComponent implements OnInit {
     this.editMode = !this.editMode;
   }
 
-  toggleReplyMode() {
+  toggleReplyMode(replyingTo: string) {
     this.replyMode = !this.replyMode;
+    if(this.replyMode){
+      this.replyingTo = replyingTo;
+    }else{
+      this.replyingTo = undefined;
+    }
   }
 
   editComment() {
@@ -76,6 +82,6 @@ export class SingleCommentComponent implements OnInit {
 
   reply(reply: CommentModel){
     this.replyMode = false;
-    this.replyEvent.emit(reply)
+    this.replyEvent.emit(reply);
   }
 }
