@@ -98,7 +98,9 @@ export class CommentsComponent implements OnInit {
   }
 
   sortComments() {
-    this.comments.sort((a, b) => (a.score <= b.score) ? 1 : -1);
+    this.comments.sort((a, b) => {
+      return (a.score <= b.score) ? 1 : -1;
+    });
   }
 
   onCloseDeleteModal(deleteConfirmed: boolean){
