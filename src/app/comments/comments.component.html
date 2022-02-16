@@ -38,7 +38,15 @@
         </div>
       </div>
       <div>
-        <app-single-comment *ngFor="let comment of comments" [comment]="comment" [currentUser]="currentUser" (editCommentEvent)="pleaseEditComment($event)" (deleteCommentEvent)="deleteComment($event)" (replyEvent)="reply($event)" class="w-full my-1"></app-single-comment>
+        <app-single-comment *ngFor="let comment of comments"
+                            [comment]="comment"
+                            [currentUser]="currentUser"
+                            (editCommentEvent)="pleaseEditComment($event)"
+                            (deleteCommentEvent)="deleteComment($event)"
+                            (replyEvent)="reply($event)"
+                            [isReply]="false"
+                            class="w-full my-1">
+        </app-single-comment>
       </div>
       <app-add-comment class="w-full mt-3 mb-1" [currentUser]="currentUser" (addCommentEvent)="addComment($event)"></app-add-comment>
     </div>

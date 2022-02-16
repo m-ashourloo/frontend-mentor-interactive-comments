@@ -54,7 +54,6 @@ export class CommentsComponent implements OnInit {
   }
 
   addComment(comment: CommentModel) {
-    console.log('arrrrr')
     this.facade.addComment(comment);
   }
 
