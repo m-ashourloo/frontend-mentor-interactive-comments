@@ -68,12 +68,22 @@ export class SingleCommentComponent implements OnInit {
 
   increaseScore(){
     this.comment.score++;
-    this.editComment();
+    if(this.isReply){
+      this.emitEditReply();
+    }
+    else{
+      this.editComment();
+    }
   }
 
   decreaseScore(){
     this.comment.score--;
-    this.editComment();
+    if(this.isReply){
+      this.emitEditReply();
+    }
+    else{
+      this.editComment();
+    }
   }
 
   deleteComment() {
