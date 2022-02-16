@@ -1,7 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
 import { CommentModel } from '../../models/comments.model';
 import { UserModel } from '../../models/user.model';
-import {comment} from "postcss";
 
 @Component({
   selector: 'app-single-comment',
@@ -13,11 +12,13 @@ export class SingleCommentComponent implements OnInit {
   @Input() comment: CommentModel;
   @Input() currentUser: UserModel | null;
   @Input() isReply: boolean;
+
   @Output() editCommentEvent = new EventEmitter<CommentModel>();
   @Output() editReplyEvent = new EventEmitter<CommentModel>();
   @Output() deleteReplyEvent = new EventEmitter<CommentModel[]>();
   @Output() deleteCommentEvent = new EventEmitter<CommentModel>();
   @Output() replyEvent = new EventEmitter<CommentModel>();
+
   editMode: boolean = false;
   replyMode: boolean = false;
   replyingTo: string | undefined = undefined;
@@ -45,13 +46,8 @@ export class SingleCommentComponent implements OnInit {
     this.editMode = false;
   }
 
-  emitEditReply() {
-    this.editReplyEvent.emit(this.comment);
-    this.editMode = false;
-  }
-
-  emitDeleteReply(){
-    this.deleteReplyEvent.emit([this.comment]);
+  deleteComment() {
+    this.deleteCommentEvent.emit(this.comment);
   }
 
   deleteReply(reply: CommentModel[]){
@@ -62,6 +58,20 @@ export class SingleCommentComponent implements OnInit {
     const index = this.comment.replies.findIndex(c => c.id === reply.id);
     this.comment.replies[index] = reply;
     this.editComment();
+  }
+
+  reply(reply: CommentModel){
+    this.replyMode = false;
+    this.replyEvent.emit(reply);
+  }
+
+  emitEditReply() {
+    this.editReplyEvent.emit(this.comment);
+    this.editMode = false;
+  }
+
+  emitDeleteReply(){
+    this.deleteReplyEvent.emit([this.comment]);
   }
 
   increaseScore(){
@@ -84,12 +94,6 @@ export class SingleCommentComponent implements OnInit {
     }
   }
 
-  deleteComment() {
-    this.deleteCommentEvent.emit(this.comment);
-  }
 
-  reply(reply: CommentModel){
-    this.replyMode = false;
-    this.replyEvent.emit(reply);
-  }
+
 }
