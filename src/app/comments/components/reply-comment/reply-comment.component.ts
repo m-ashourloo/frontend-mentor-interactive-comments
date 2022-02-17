@@ -4,8 +4,7 @@ import {CommentModel} from "../../models/comments.model";
 
 @Component({
   selector: 'app-reply-comment',
-  templateUrl: './reply-comment.component.html',
-  styleUrls: ['./reply-comment.component.scss']
+  templateUrl: './reply-comment.component.html'
 })
 export class ReplyCommentComponent implements OnInit {
 

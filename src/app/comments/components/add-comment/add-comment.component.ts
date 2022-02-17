@@ -13,7 +13,6 @@ import { CommentModel } from '../../models/comments.model';
 @Component({
   selector: 'app-add-comment',
   templateUrl: './add-comment.component.html',
-  styleUrls: ['./add-comment.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AddCommentComponent implements OnInit {
