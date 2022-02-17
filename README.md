@@ -1,27 +1,132 @@
-# FrontendMentorInteractiveComments
+# Frontend Mentor - Interactive comments section solution
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.2.
+This is a solution to the [Interactive comments section challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/interactive-comments-section-iG1RugEG9). I used Angular CLI 13, Tailwind CSS and json-server for this challenge.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Table of contents
 
-## Code scaffolding
+  
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- [Overview](#overview)
 
-## Build
+- [The challenge](#the-challenge)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- [Screenshot](#screenshot)
 
-## Running unit tests
+- [Links](#links)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- [My process](#my-process)
 
-## Running end-to-end tests
+- [Built with](#built-with)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- [What I learned](#what-i-learned)
 
-## Further help
+- [Continued development](#continued-development)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- [Useful resources](#useful-resources)
+
+- [Author](#author)
+
+- [Acknowledgments](#acknowledgments)
+
+  
+
+**Note: Delete this note and update the table of contents based on what sections you keep.**
+
+  
+
+## Overview
+
+  
+
+### The challenge
+
+  
+
+Users should be able to:
+
+  
+
+- View the optimal layout for the app depending on their device's screen size
+
+- See hover states for all interactive elements on the page
+
+- Create, Read, Update, and Delete comments and replies
+
+- Upvote and downvote comments
+
+  
+
+### Screenshot
+
+ 
+![enter image description here](https://raw.githubusercontent.com/m-ashourloo/frontend-mentor-interactive-comments/master/screenshot.png)
+  
+  
+
+### Links
+
+  
+
+- Solution URL: [Add solution URL here](https://your-solution-url.com)
+
+- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+
+  
+
+## My process
+
+  
+
+### Built with
+
+  
+
+- Flexbox
+
+- Mobile-first workflow
+
+- [Angular](https://angular.io/) - The modern web  developer's platform
+
+- [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework
+
+ 
+
+  
+
+### What I learned
+
+Also I used facade design pattern in this challenge and it is a powerful architecture for angular applications.  
+
+I used Tailwind CSS for the first time in this challenge and yeah! I think it's fun and helpful.
+
+
+  
+
+### Continued development
+
+  
+
+I really want to explore more in Tailwind CSS.
+
+
+  
+
+### Useful resources
+
+  
+
+- [ Angular Architecture Patterns and Best Practices](https://dev-academy.com/angular-architecture-best-practices/) - This is a super fantastic article about angular architecture that helped me in implementing facade design pattern.
+
+## Author
+
+  
+
+- mohammad ashourloo
+
+- Frontend Mentor - [@m-ashourloo](https://www.frontendmentor.io/profile/m-ashourloo)
+
+- Twitter - [@m_ashourloo](https://twitter.com/m_ashourloo)
+
+
+  
