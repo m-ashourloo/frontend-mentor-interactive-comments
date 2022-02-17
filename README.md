@@ -27,8 +27,6 @@ This is a solution to the [Interactive comments section challenge on Frontend Me
 
 - [Author](#author)
 
-- [Acknowledgments](#acknowledgments)
-
   
 
 **Note: Delete this note and update the table of contents based on what sections you keep.**
@@ -68,9 +66,9 @@ Users should be able to:
 
   
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [link](https://frontendmentor.io/solutions/angular-solution-using-tailwind-css-and-jsonserver-2lFD2BLlP)
 
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [link](https://m-ashourloo.github.io/frontend-mentor-interactive-comments/comments)
 
   
 
